@@ -43,6 +43,41 @@ namespace Csharp_Shop_2
             }
         }
 
+        public void bevi(double litriBevuti)
+        {
+            capienzaAttuale = capienzaAttuale - litriBevuti;
+            if(capienzaAttuale < 0)
+            {
+                capienzaAttuale = 0;
+                Console.WriteLine("hai finito la bottiglia");
+            }
+            else
+            {
+                Console.WriteLine("ti rimangono: " + Math.Round(capienzaAttuale,2) + " litri");
+            }
+        }
+
+        public void Riempi(double litriInseriti)
+        {
+            capienzaAttuale = capienzaAttuale + litriInseriti;
+            if (capienzaAttuale > capienzaMassima)
+            {
+                double sbordo;
+                sbordo = capienzaAttuale - capienzaMassima;
+                capienzaAttuale = capienzaMassima;
+                Console.WriteLine("la bottiglia è stata riempita al massimo ma hai avuto uno sbordo d'acqua di " + Math.Round(sbordo,2) + " litri");
+            }
+            else
+            {
+                Console.WriteLine("ti rimangono: " + Math.Round(capienzaAttuale, 2) + " litri");
+            }
+        }
+
+        public void Svuota(double litriInseriti)
+        {
+            capienzaAttuale = 0;
+        }
+
         //------ fine Metodi ------ 
 
         //------ Getters ------ 
@@ -92,18 +127,6 @@ namespace Csharp_Shop_2
             this.capienzaAttuale= capienzaAttuale;
         }
 
-        public void Setph(int ph)
-        {
-            this.ph = ph;
-        }
-
-        public void SetSorgente(string sorgente)
-        {
-            this.sorgente = sorgente;
-        }
-
         //------ fine Setters ------ 
     }
-
-
 }
