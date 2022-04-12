@@ -123,7 +123,7 @@ namespace CsharpShop
             double prezzoConIva;
             tasse = (prezzo * iva) / 100;
             prezzoConIva = prezzo + tasse;
-            return prezzoConIva;
+            return Math.Round(prezzoConIva,2);
         }
 
         //------------- Fine Metodi Getter -------------
