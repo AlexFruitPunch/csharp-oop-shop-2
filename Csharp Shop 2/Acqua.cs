@@ -78,6 +78,15 @@ namespace Csharp_Shop_2
             capienzaAttuale = 0;
         }
 
+        public override void StampaProdotto()
+        {
+            base.StampaProdotto();
+            Console.WriteLine("--- Informazioni aggiuntive ---");
+            Console.WriteLine("Sorgente: " + sorgente);
+            Console.WriteLine("ph: " + ph);
+            Console.WriteLine("litri attuali: " + capienzaAttuale + "\n");
+        }
+
         //------ fine Metodi ------ 
 
         //------ Getters ------ 

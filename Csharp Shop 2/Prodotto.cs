@@ -73,7 +73,7 @@ namespace Csharp_Shop_2
             }
         }
 
-        public void StampaProdotto()
+        public virtual void StampaProdotto()
         {
             Console.WriteLine("\n----- Prodotto -----");
             Console.WriteLine("Codice: " + ApprossimaCodice8cifre());
