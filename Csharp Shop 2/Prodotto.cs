@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CsharpShop
+namespace CsharpShop2
 {
     public class Prodotto
     {
