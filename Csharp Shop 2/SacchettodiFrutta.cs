@@ -83,6 +83,13 @@ namespace Csharp_Shop_2
             }
         }
 
+        public override void StampaProdotto()
+        {
+            base.StampaProdotto();
+            Console.WriteLine("--- Informazioni aggiuntive ---");
+            Console.WriteLine("Frutta attualmente nel sacchetto: " + capienzaAttuale + "/" + capienzaMax + "\n");
+        }
+
         //----- Fine Metodi -----
 
         //----- Getters -----
