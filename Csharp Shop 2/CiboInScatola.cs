@@ -12,11 +12,13 @@ namespace Csharp_Shop_2
         private string luogodiProduzione;
         private double peso;
         private double capienzaMax;
+        private string dataScadenza;
 
-        public CiboInScatola(int codiceCiboInScatola, string nomeCiboInScatola, string descrizioneCiboInScatola, double prezzoCiboInScatola, string categoriaCiboInScatola, double peso, string luogodiProduzione) : base(codiceCiboInScatola, nomeCiboInScatola, descrizioneCiboInScatola, prezzoCiboInScatola, categoriaCiboInScatola)
+        public CiboInScatola(int codiceCiboInScatola, string nomeCiboInScatola, string descrizioneCiboInScatola, double prezzoCiboInScatola, string categoriaCiboInScatola, double peso, string luogodiProduzione, string dataScadenza) : base(codiceCiboInScatola, nomeCiboInScatola, descrizioneCiboInScatola, prezzoCiboInScatola, categoriaCiboInScatola)
         {
             this.luogodiProduzione = luogodiProduzione;
             this.peso = peso;
+            this.dataScadenza = dataScadenza;
             capienzaMax = 300;
             ControlloCapienza();
         }
@@ -44,6 +46,54 @@ namespace Csharp_Shop_2
                     ImputCorretto = true;
                 }
             }
+        }
+
+        public override void StampaProdotto()
+        {
+            base.StampaProdotto();
+            Console.WriteLine("--- Informazioni aggiuntive ---");
+            Console.WriteLine("luogodiProduzione: " + luogodiProduzione);
+            Console.WriteLine("peso: " + peso + " gr\n");
+        }
+
+        //------- Getters -------
+
+        public string GetluogodiProduzione()
+        {
+            return luogodiProduzione;
+        }
+        public double Getpeso()
+        {
+            return peso;
+        }
+        public double GetcapienzaMax()
+        {
+            return capienzaMax;
+        }
+
+        public string GetdataScadenza()
+        {
+            return dataScadenza;
+        }
+
+        //------- Setters -------
+
+        public void SetluogodiProduzione(string luogodiProduzione)
+        {
+            this.luogodiProduzione = luogodiProduzione;
+        }
+        public void Setpeso(double peso)
+        {
+            this.peso = peso;
+        }
+        public void SetcapienzaMax(double capienzaMax)
+        {
+            this.capienzaMax = capienzaMax;
+        }
+
+        public void SetdataScadenza(string dataScadenza)
+        {
+            this.dataScadenza = dataScadenza; 
         }
     }
 }
