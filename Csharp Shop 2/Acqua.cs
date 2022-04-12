@@ -87,6 +87,12 @@ namespace Csharp_Shop_2
             Console.WriteLine("litri attuali: " + capienzaAttuale + "\n");
         }
 
+        public static void ConvertiGalloni(double litriDaConvertire)
+        {
+            const double Gallone = 3.785;
+            litriDaConvertire = litriDaConvertire * Gallone;
+        }
+
         //------ fine Metodi ------ 
 
         //------ Getters ------ 

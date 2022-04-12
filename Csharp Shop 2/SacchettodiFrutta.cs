@@ -1,12 +1,107 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Csharp_Shop_2;
 
 namespace Csharp_Shop_2
 {
-    internal class SacchettodiFrutta
+    internal class SacchettodiFrutta : Prodotto
     {
+        private int capienzaMax;
+        private int pezziDiFrutta;
+        private int capienzaAttuale;
+        public SacchettodiFrutta(int codice, string nome, string descrizione, double prezzo, string categoria, int pezziDiFrutta) : base(codice, nome, descrizione, prezzo, categoria)
+        {
+            capienzaMax = 5;
+            capienzaAttuale = 0;
+            this.pezziDiFrutta = pezziDiFrutta;
+            ControlloCapienza();
+        }
+
+        //----- Metodi -----
+
+        private void ControlloCapienza()
+        {
+            bool imputCorretto = false;
+            while(imputCorretto == false) { 
+                if (pezziDiFrutta > capienzaMax)
+                {
+                    imputCorretto = true;
+                    int pezziCaduti;
+                    pezziCaduti = pezziDiFrutta - capienzaMax;
+                    capienzaAttuale = capienzaMax;
+                    Console.WriteLine("il sacchetto è pieno e alcuni pezzi di frutta sono caduti a terra");
+                    Console.WriteLine("ti sono caduti " + pezziCaduti + "pezzi di " + base.GetNome + " a terra");
+                }else if (pezziDiFrutta == capienzaMax)
+                {
+                    imputCorretto = true;
+                    capienzaAttuale = capienzaMax;
+                }
+                else
+                {
+                    Console.WriteLine("non puoi mettere dei pezzi di frutta in negativo");
+                    Console.WriteLine("reinserisci il numero di pezzi necessario");
+                    pezziDiFrutta = int.Parse(Console.ReadLine());
+                }
+            }
+        }
+
+        public void SvuotaSacchetto()
+        {
+            capienzaAttuale = 0;
+            Console.WriteLine("il sacchetto ora è vuoto");
+        }
+
+        public void RiempiSacchetto(int pezziDiFrutta)
+        {
+            this.pezziDiFrutta = pezziDiFrutta;
+            ControlloCapienza();
+        }
+
+        public void MangiaFrutta(int pezziDiFrutta)
+        {
+            bool imputCorretto = false;
+            int fruttaRimasta = capienzaAttuale;
+            capienzaAttuale = capienzaAttuale - pezziDiFrutta;
+            while (imputCorretto == false) { }
+            if (pezziDiFrutta > capienzaAttuale)
+            {
+                Console.WriteLine("non c'è abbastanza frutta per soddisfare la tua richiesta");
+                Console.WriteLine("ti lascio " + fruttaRimasta + "pezzi di " + base.GetNome() + "che sono avanzati");
+                Console.WriteLine("il sacchetto ora è vuoto");
+                capienzaAttuale = 0;
+                imputCorretto = true;
+            }
+            else if (pezziDiFrutta == capienzaMax)
+            {
+                imputCorretto = true;
+                capienzaAttuale = 0;
+                Console.WriteLine("hai mangiato tutti i pezzi di frutta");
+            }
+            else
+            {
+                Console.WriteLine("non puoi mettere dei pezzi di frutta in negativo");
+                Console.WriteLine("reinserisci il numero di pezzi necessario");
+                pezziDiFrutta = int.Parse(Console.ReadLine());
+            }
+        }
+
+        //----- Fine Metodi -----
+
+        //----- Getters -----
+
+        public int GetCapienzaMax()
+        {
+            return capienzaMax;
+        }
+
+        public double GetpezziDiFrutta()
+        {
+            return pezziDiFrutta;
+        }
+
+        public double GetcapienzaAttuale()
+        {
+            return capienzaAttuale;
+        }
+
+        //----- Fine Getters -----
     }
 }
