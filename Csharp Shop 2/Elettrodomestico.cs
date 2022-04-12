@@ -7,7 +7,13 @@ using Csharp_Shop_2;
 
 namespace Csharp_Shop_2
 {
-    internal class Elettrodomestico
+    internal class Elettrodomestico : Prodotto
     {
+        private string LuogodiProduzione;
+
+
+        public Elettrodomestico(int codiceElettrodomestico, string nomeElettrodomestico, string descrizioneElettrodomestico, double prezzoElettrodomestico, string categoriaElettrodomestico) : base(codiceElettrodomestico, nomeElettrodomestico, descrizioneElettrodomestico, prezzoElettrodomestico, categoriaElettrodomestico)
+        {
+        }
     }
 }

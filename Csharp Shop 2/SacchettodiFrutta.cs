@@ -7,7 +7,7 @@ namespace Csharp_Shop_2
         private int capienzaMax;
         private int pezziDiFrutta;
         private int capienzaAttuale;
-        public SacchettodiFrutta(int codice, string nome, string descrizione, double prezzo, string categoria, int pezziDiFrutta) : base(codice, nome, descrizione, prezzo, categoria)
+        public SacchettodiFrutta(int codiceFrutta, string nomeFrutta, string descrizioneFrutta, double prezzoFrutta, string categoriaFrutta, int pezziDiFrutta) : base(codiceFrutta, nomeFrutta, descrizioneFrutta, prezzoFrutta, categoriaFrutta)
         {
             capienzaMax = 5;
             capienzaAttuale = 0;
@@ -28,7 +28,7 @@ namespace Csharp_Shop_2
                     pezziCaduti = pezziDiFrutta - capienzaMax;
                     capienzaAttuale = capienzaMax;
                     Console.WriteLine("il sacchetto è pieno e alcuni pezzi di frutta sono caduti a terra");
-                    Console.WriteLine("ti sono caduti " + pezziCaduti + "pezzi di " + base.GetNome + " a terra");
+                    Console.WriteLine("ti sono caduti " + pezziCaduti + "pezzi di " + base.GetNome() + " a terra");
                 }else if (pezziDiFrutta == capienzaMax)
                 {
                     imputCorretto = true;
